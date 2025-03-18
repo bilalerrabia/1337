@@ -57,11 +57,22 @@ int ft_strlen(char* str){  ///06
  }
 
 void ft_sort_int_tab(int *tab,int size){  //08
-    
+    int tmp;
+    for(int i=0;i<size;i++){
+        for(int j=i+1;j<size;j++){
+            if(tab[i]>tab[j]){
+                tmp=tab[j];
+                tab[j]=tab[i];
+                tab[i]=tmp;
+            }
+        }
+    }
 }
- int main(){
-    int tab[]={1,2,3,4,5};
-    ft_rev_int_tab(tab,5);
-    for(int i=0;i<5;i++)
+
+
+int main(){
+    int tab[]={2,3,1,4,1,3,5,6};
+    ft_sort_int_tab(tab,8);
+    for(int i=0;i<8;i++)
         printf("%d,",tab[i]);
 }
